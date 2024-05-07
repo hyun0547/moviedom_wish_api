@@ -61,7 +61,7 @@ public class WishController {
 
         RestTemplate restTemplate = new RestTemplate();
                 
-        String url = "http://localhost:8080/movie/list";
+        String url = "http://movie-api/movie/list";
 
         return restTemplate.postForObject(url, searchKeyword, ResultSet.class);
     }

@@ -24,7 +24,7 @@ jobs:
 
       # docker image 빌드
       - name: Build docker image
-        run: docker build -t hyeonsuson/movieham_movie_api .
+        run: docker build -t hyeonsuson/movieham_wish_api .
 
       # docker hub 로그인
       - name: Login docker hub
@@ -35,7 +35,7 @@ jobs:
 
       # docker hub 퍼블리시
       - name: Publish to docker hub
-        run: docker push hyeonsuson/movieham_movie_api
+        run: docker push hyeonsuson/movieham_wish_api
 
       # WAS 인스턴스 접속 & 애플리케이션 실행
       - name: Connect to WAS & Execute Application
@@ -46,7 +46,7 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           port: ${{ secrets.WAS_SSH_PORT }}
           script: |
-            docker compose -f /opt/docker-compose/movieham_be/movieham_movie_api/docker-compose.yaml stop
-            docker compose -f /opt/docker-compose/movieham_be/movieham_movie_api/docker-compose.yaml rm -f
-            docker compose -f /opt/docker-compose/movieham_be/movieham_movie_api/docker-compose.yaml pull
-            docker compose -f /opt/docker-compose/movieham_be/movieham_movie_api/docker-compose.yaml up -d
+            docker compose -f /opt/docker-compose/movieham_be/movieham_wish_api/docker-compose.yaml stop
+            docker compose -f /opt/docker-compose/movieham_be/movieham_wish_api/docker-compose.yaml rm -f
+            docker compose -f /opt/docker-compose/movieham_be/movieham_wish_api/docker-compose.yaml pull
+            docker compose -f /opt/docker-compose/movieham_be/movieham_wish_api/docker-compose.yaml up -d
