@@ -46,7 +46,7 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           port: ${{ secrets.WAS_SSH_PORT }}
           script: |
-            docker compose -f /opt/docker-compose/movieham_be/movieham_wish_api/docker-compose.yaml stop
-            docker compose -f /opt/docker-compose/movieham_be/movieham_wish_api/docker-compose.yaml rm -f
-            docker compose -f /opt/docker-compose/movieham_be/movieham_wish_api/docker-compose.yaml pull
-            docker compose -f /opt/docker-compose/movieham_be/movieham_wish_api/docker-compose.yaml up -d
+            docker compose -f /opt/docker-compose/movieham_be/docker-compose.yaml stop wish-api
+            docker compose -f /opt/docker-compose/movieham_be/docker-compose.yaml rm -f wish-api
+            docker compose -f /opt/docker-compose/movieham_be/docker-compose.yaml pull wish-api
+            docker compose -f /opt/docker-compose/movieham_be/docker-compose.yaml up -d wish-api
